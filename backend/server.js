@@ -1,15 +1,16 @@
-const express = require ('express');
+import express from 'express'
 const app = express();
-const port = 3000;
+import cors from 'cors'
+import tasksRouter from './routes/tasks.routes.js'
 
-const IndexRoute = require('./routes/index_route');
-//middleware
+app.use(cors());
 app.use(express.json());
 
-app.use('/', IndexRoute);
+app.use('/', tasksRouter);
 
 
+const PORT = 3000;
 
-app.listen(port, () => {
-    console.log(`server is running on http://localhost:${port}`);
-})
+app.listen(PORT, () => {
+    console.log(`server is listening on http://localhost:${PORT}`);
+});
