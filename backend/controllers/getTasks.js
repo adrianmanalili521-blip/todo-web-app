@@ -6,7 +6,7 @@ async function getTasks (req, res) {
         res.json(tasks);
     } catch (e) {
         console.log(e);
-        res.status(500);
+        res.status(500).send({error : e});
     }
 }
 
