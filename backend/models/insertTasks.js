@@ -1,12 +1,13 @@
 import db from '../db.js'
 
 async function InsertTask(req, res){
-    const { todo } = req.body;
+    const { task } = req.body;
+    
     try {
         const sql = 
             `INSERT INTO todo (task) values (?)`;
         
-        const [result] = await db.query(sql, [todo]);   
+        const [result] = await db.query(sql, [task]);   
         if (!result){
             res.status(500).json({message: "POST failed"});
         } else {

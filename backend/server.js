@@ -1,8 +1,9 @@
 import express from 'express'
 const app = express();
+
 import cors from 'cors'
+
 import tasksRouter from './routes/tasks.routes.js'
-import todoRouter from './routes/todo.routes.js'
 
 app.use(cors());
 app.use(express.json());

@@ -19,8 +19,8 @@ function DisplayTasks() {
                 const response = await fetch('http://localhost:3000/tasks');
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 const data = await response.json();
-                console.log(data);
-                setTasks(data);
+                console.log(data.message);
+                setTasks(data.task);
                 } catch (e) {  
                 console.log("fetch error:", e);
                 }

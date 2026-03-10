@@ -1,29 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import CustomButton from './button'
 
 function PostTasks () {
     const [task, setTask] = useState('');
 
-    function handleClick () {
-        alert('yamete kudasai! ;)');
-    }
-    
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTask(e.target.value);
-    }
-
     async function postTask () {
         try {
-            const response = await fetch('http://localhost:3000/todo/post', {
+            const response = await fetch('http://localhost:3000/post/task', {
                 method : 'POST',
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({task : task}),
             });
+            const data = await response.json();
+            console.log(data);
+            alert(data.message);
         } catch (e) {
             console.log(e);
         }
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTask(e.target.value);
+    }
+
+    function handleClick () {
+        // alert('yamete kudasai! ;)');
+        postTask();
+        setTask('');
     }
 
     return (
