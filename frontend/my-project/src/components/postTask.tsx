@@ -7,10 +7,14 @@ function PostTasks () {
     function handleClick () {
         alert('yamete kudasai! ;)');
     }
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTask(e.target.value);
+    }
 
     async function postTask () {
         try {
-            const response = await fetch('http://localhost:5173/todo/post', {
+            const response = await fetch('http://localhost:3000/todo/post', {
                 method : 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -22,10 +26,6 @@ function PostTasks () {
         }
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTask(e.target.value);
-    }
-    
     return (
         <div className="w-full p-2 flex flex-row">
             <input 

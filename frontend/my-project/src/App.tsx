@@ -7,9 +7,7 @@ function App () {
             <div className="border rounded-2xl w-100 flex flex-col items-center">
                 Your Todo
                 <div className="flex flex-col items-start w-full p-2 bg">
-                    <ol className="list-decimal list-inside">
-                        <DisplayTasks />
-                    </ol> 
+                    <DisplayTasks />
                 </div>
             </div>
             

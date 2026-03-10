@@ -31,13 +31,17 @@ function DisplayTasks() {
     if (tasks.length === 0) {
         return (
             <p>
-                Nothing to show here.
+                Nothing to show here. maybe bcoz server is offline hehe...
             </p>
         );
     } else {
-        {tasks.map((item) => {
-            <li key={item.id} className="flex flex-row mb-5">{item.id}. {item.task} <CustomButton title="done" onClick={handleClick}/> <CustomButton title="delete" onClick={handleClick}/> <CustomButton title="update" onClick={handleClick}/></li>
-        })}
+        return (
+            <ol className="list-decimal list-inside">
+                {tasks.map((item) => {
+                    return <li key={item.id} className="flex flex-row mb-5">{item.id}. {item.task} <CustomButton title="done" onClick={handleClick}/> <CustomButton title="delete" onClick={handleClick}/> <CustomButton title="update" onClick={handleClick}/></li>        
+                })}
+            </ol> 
+        );
     }
 }
 
